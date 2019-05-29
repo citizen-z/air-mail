@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!-- saved from url=(0252)http://client.cors-api.appspot.com/client#?client_method=GET&client_credentials=false&client_headers=https%3A%2F%2Fg9nlub8159.execute-api.eu-west-1.amazonaws.com%2Ftest%2F&server_enable=true&server_status=200&server_credentials=false&server_tabs=remote -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>test-cors.org</title>
+  <link href="./test-cors.org_files/bootstrap-2.3.1.min.css" rel="stylesheet" media="screen">
+ </head>
+ <body>
+
+  <div class="container">
+
+  <div class="row">
+    <div class="span1"></div>
+    <div class="span10">
+
+<div class="row" id="intro">
+  <div class="span10">
+    <h1>test-cors.org</h1>
+
+    <p>Use this page to test CORS requests. You can either send the CORS request to a remote server (to test if CORS is supported), or send the CORS request to a test server (to explore certain features of CORS). Send feedback or browse the source here: <a href="https://github.com/monsur/cors-api">https://github.com/monsur/cors-api</a>.</p>
+  </div>
+</div>
+
+<div class="row" id="inputs">
+  <div class="span5">
+    <form class="form-horizontal">
+    <legend>Client</legend>
+
+    <div class="control-group" id="client_method_div" title="" data-content="Which HTTP method the client should use when making the request." data-original-title="Help: HTTP Method">
+      <label class="control-label" for="client_method">HTTP Method</label>
+      <div class="controls">
+        <select id="client_method" class="span2">
+          <option value="HEAD">HEAD</option>
+          <option value="GET" selected="">GET</option>
+          <option value="POST">POST</option>
+          <option value="PUT">PUT</option>
+          <option value="DELETE">DELETE</option>
+          <option value="OPTIONS">OPTIONS</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group" id="client_credentials_div" title="" data-content="Whether the client should include cookies in the request." data-original-title="Help: With credentials?">
+      <label class="control-label" for="client_credentials">With credentials?</label>
+      <div class="controls">
+        <input type="checkbox" id="client_credentials">
+      </div>
+    </div>
+
+    <div class="control-group" id="client_method_div" title="" data-content="A list of custom request headers to include in the request. One header per line, in the format key: value." data-original-title="Help: Request Headers">
+      <label class="control-label" for="client_headers">Request Headers</label>
+      <div class="controls">
+        <textarea id="client_headers" class="span2" rows="4"></textarea>
+      </div>
+    </div><div class="popover fade left in" style="top: 297.5px; left: -38.5px; display: block;"><div class="arrow"></div><h3 class="popover-title">Help: Request Headers</h3><div class="popover-content">A list of custom request headers to include in the request. One header per line, in the format key: value.</div></div>
+
+    <div class="control-group">
+    <div class="controls">
+      <button class="btn btn-large btn-primary" type="button" id="btnSendRequest">Send Request</button>
+    </div></div>
+
+    </form>
+  </div>
+  <div class="span5">
+    <form class="form-horizontal" _lpchecked="1">
+    <legend>Server</legend>
+    <ul class="nav nav-tabs" id="server_tabs">
+      <li class="active"><a href="http://client.cors-api.appspot.com/client#tabremote" data-toggle="tab" id="remote">Remote</a></li>
+      <li class=""><a href="http://client.cors-api.appspot.com/client#tablocal" data-toggle="tab" id="local">Local</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="tabremote">
+
+        <div class="control-group" id="server_url_div" title="" data-content="The URL to test for CORS support." data-original-title="Help: Remote URL">
+          <label class="control-label" for="server_url">Remote URL</label>
+          <div class="controls">
+            <input type="text" id="server_url" class="span2">
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="tablocal">
+
+        <div class="control-group" id="server_enable_div" title="" data-content="Whether or not the server should allow CORS requests." data-original-title="Help: Enable CORS">
+          <label class="control-label" for="server_enable">Enable CORS</label>
+          <div class="controls">
+            <input type="checkbox" id="server_enable" checked="">
+          </div>
+        </div>
+
+        <div class="control-group" id="server_status_div" title="" data-content="The HTTP Status code the server should respond with. Default: 200." data-original-title="Help: HTTP Status">
+          <label class="control-label" for="server_status">HTTP Status</label>
+          <div class="controls">
+<input type="text" id="server_status" value="200" class="span1">
+          </div>
+        </div>
+
+        <div class="control-group" id="server_credentials_div" title="" data-content="Whether the server should allow cookies on the request." data-original-title="Help: Allow Credentials">
+          <label class="control-label" for="server_credentials">Allow Credentials</label>
+          <div class="controls">
+            <input type="checkbox" id="server_credentials">
+          </div>
+        </div>
+
+        <div class="control-group" id="server_methods_div" title="" data-content="Comma-delimited list of HTTP methods the server should allow." data-original-title="Help: Allow Methods">
+          <label class="control-label" for="server_methods">Allow Methods</label>
+          <div class="controls">
+            <input type="text" id="server_methods" class="span2">
+          </div>
+        </div>
+
+        <div class="control-group" id="server_headers_div" title="" data-content="Comma-delimited list of HTTP headers the server should allow." data-original-title="Help: Allow Headers">
+          <label class="control-label" for="server_headers">Allow Headers</label>
+          <div class="controls">
+            <input type="text" id="server_headers" class="span2">
+          </div>
+        </div>
+
+        <div class="control-group" id="server_expose_headers_div" title="" data-content="Comma-delimited list of HTTP response headers that the client should be able to view." data-original-title="Help: Expose Headers">
+          <label class="control-label" for="server_expose_headers">Expose Headers</label>
+          <div class="controls">
+            <input type="text" id="server_expose_headers" class="span2">
+          </div>
+        </div>
+
+        <div class="control-group" id="server_max_age_div" title="" data-content="The time, in seconds, that the preflight response should be cached for." data-original-title="Help: Max Age">
+          <label class="control-label" for="server_max_age">Max Age</label>
+          <div class="controls">
+            <input type="text" id="server_max_age" class="span2">
+          </div>
+        </div>
+
+        <div class="control-group" id="server_response_headers_div" title="" data-content="Custom headers to include in the server response." data-original-title="Help: Response Headers">
+          <label class="control-label" for="server_response_headers">Response Headers</label>
+          <div class="controls">
+            <textarea id="server_response_headers" class="span2" rows="3"></textarea>
+          </div>
+        </div>
+
+    </div>
+
+    
+  </div></form>
+</div>
+
+<div class="row" id="results">
+  <div class="span10">
+    <ul class="nav nav-tabs" id="result_tabs">
+      <li class="active"><a href="http://client.cors-api.appspot.com/client#tabresultlog" data-toggle="tab">Results</a></li>
+      <li class=""><a href="http://client.cors-api.appspot.com/client#tabresultcode" data-toggle="tab">Code</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="tabresultlog"><a href="http://client.cors-api.appspot.com/client#" onclick="javascript:prompt(&#39;Here\&#39;s a link to this test&#39;, &#39;http://client.cors-api.appspot.com/client#?client_method=GET&amp;client_credentials=false&amp;client_headers=https%3A%2F%2Fg9nlub8159.execute-api.eu-west-1.amazonaws.com%2Ftest%2F&amp;server_enable=true&amp;server_status=200&amp;server_credentials=false&amp;server_tabs=remote&#39;);return false;">Link to this test</a><br><br>Sending GET request to <code></code><br><br>Fired XHR event: <span class="log-yellow">loadstart</span><br>Fired XHR event: <span class="log-yellow">readystatechange</span><br>Fired XHR event: <span class="log-yellow">readystatechange</span><br>Fired XHR event: <span class="log-yellow">progress</span><br>Fired XHR event: <span class="log-yellow">readystatechange</span><br>Fired XHR event: <span class="log-green">load</span><br><br>XHR status: 200<br>XHR status text: OK<br>XHR exposed response headers: <pre class="headers">Date: Wed, 09 Mar 2016 14:10:32 GMT
+Content-Encoding: gzip
+Server: Google Frontend
+ETag: "uE1Jxg"
+Content-Type: text/html
+Cache-Control: public, max-age=600
+Content-Length: 2202
+Expires: Wed, 09 Mar 2016 14:20:32 GMT
+</pre><br>Fired XHR event: <span class="log-yellow">loadend</span><br></div>
+
+      <div class="tab-pane" id="tabresultcode">
+
+<pre>var createCORSRequest = function(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // Most browsers.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // IE8 &amp; IE9
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+};
+
+var url = '<span id="code_url"></span>';
+var method = '<span id="code_method">GET</span>';
+var xhr = createCORSRequest(method, url);
+
+xhr.onload = function() {
+  // Success code goes here.
+};
+
+xhr.onerror = function() {
+  // Error code goes here.
+};
+<span id="code_extras"></span>
+xhr.send();
+</pre>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    </div>
+    <div class="span1"></div>
+  </div>
+  </div>
+
+<a href="https://github.com/monsur/cors-api"><img style="position: absolute; top: 0; right: 0; border: 0;" src="./test-cors.org_files/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+
+  <script type="text/javascript" async="" src="./test-cors.org_files/ga.js"></script><script src="./test-cors.org_files/jquery-1.9.1.min.js"></script>
+  <script src="./test-cors.org_files/bootstrap-2.3.1.min.js"></script>
+  <script src="./test-cors.org_files/corsclient.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34992572-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+ 
+
+</div><script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{(function() { for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i.toString(); } else { d.textContent=i.toString(); } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }})()}catch(e){}</script></body></html>

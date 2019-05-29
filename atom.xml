@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>דואר אוויר</title>
+	<link href="http://air-mail.co/atom.xml" rel="self"/>
+	<link href="http://air-mail.co"/>
+	<updated>2016-03-05T15:42:56.475Z</updated>
+	<id>http://air-mail.co</id>
+	<author>
+		<name>דואר אוויר</name>
+		<email>admin</email>
+	</author>
+
+	
+		
+			<entry>
+				<title>אמזון דוט - אמזון אקו בגירסת מיקרו</title>
+				<link href="http://air-mail.co/posts/Amazon_echo_micro_dot"/>
+				<updated>2016-03-05T00:00:00.000Z</updated>
+				<id>http://air-mail.co//posts/Amazon_echo_micro_dot</id>
+				<content type="html">
+					&lt;a href=&quot;/posts/Amazon_echo_micro_dot&quot;&gt;
+										&lt;img class=&quot;img-responsive&quot;
+													src=&quot;/images/data/amazon-Echo-Dot0.thumb_default_w300h300q85.jpg&quot;
+													alt=&quot;Amazon dot with Alexa&quot;&gt;
+									&lt;/a&gt;
+
+									&lt;p&gt;
+									בשנת 2014 השיקה אמזון את האמזון אקו - מחשב קולי המחובר לענן באופן קבוע ומסוגל לבצע פעולות שונות כגון ניגון מוזיקה ומענה על שאלות בצורה אינטי...
+									&lt;/p&gt;
+				</content>
+				<media:thumbnail xmlns:media="http://search.yahoo.com/mrss/"
+				   url="/images/data/amazon-Echo-Dot0.thumb_default_w300h300q85.jpg"
+				   height="300" width="300" />
+			</entry>
+		
+	
+		
+			<entry>
+				<title>אמאזון משיקה את הטאפ - רמקול נייד עם חיבור לאלקסה</title>
+				<link href="http://air-mail.co/posts/Amazon_tap_bluetooth_speaker"/>
+				<updated>2016-03-04T00:00:00.000Z</updated>
+				<id>http://air-mail.co//posts/Amazon_tap_bluetooth_speaker</id>
+				<content type="html">
+					&lt;a href=&quot;/posts/Amazon_tap_bluetooth_speaker&quot;&gt;
+										&lt;img class=&quot;img-responsive&quot;
+													src=&quot;/images/data/amazon-tap0.thumb_default_w300h300q85.jpg&quot;
+													alt=&quot;Amazon Tap with Alexa&quot;&gt;
+									&lt;/a&gt;
+
+									&lt;p&gt;
+									חברת אמזון חשפה ביום שלישי רמקול נייד הנקרא אמזון טאפ (Amazon Tap). רמקול הטאפ מסוגל להתחבר לאינטרנט דרך רשת WIFI ולהשמיע למשתמש מוזיקה משרו...
+									&lt;/p&gt;
+				</content>
+				<media:thumbnail xmlns:media="http://search.yahoo.com/mrss/"
+				   url="/images/data/amazon-tap0.thumb_default_w300h300q85.jpg"
+				   height="300" width="300" />
+			</entry>
+		
+	
+		
+			<entry>
+				<title>Shield K1 - טאבלט המשחקים של NVIDIA מקבל עדכון תוכנה</title>
+				<link href="http://air-mail.co/posts/Nvidia_shield_k1_gaming_android_update"/>
+				<updated>2016-02-13T00:00:00.000Z</updated>
+				<id>http://air-mail.co//posts/Nvidia_shield_k1_gaming_android_update</id>
+				<content type="html">
+					&lt;a href=&quot;/posts/Nvidia_shield_k1_gaming_android_update&quot;&gt;
+										&lt;img class=&quot;img-responsive&quot;
+													src=&quot;/images/data/shield-gaming-tablet-4.thumb_default_w300h300q85.jpg&quot;
+													alt=&quot;Nvidia shield k1 android update&quot;&gt;
+									&lt;/a&gt;
+
+									&lt;p&gt;
+									טאבלט השילד של NVIDIA קיבל בדצמבר האחרון עדכון לאנדרואיד 6.0 מרשמלו, אולם בעקבות העדכון צצו למשתמשים בעיות בשימוש הטאבלט - בעיקר בעיות של תק...
+									&lt;/p&gt;
+				</content>
+				<media:thumbnail xmlns:media="http://search.yahoo.com/mrss/"
+				   url="/images/data/shield-gaming-tablet-4.thumb_default_w300h300q85.jpg"
+				   height="300" width="300" />
+			</entry>
+		
+	
+		
+			<entry>
+				<title>פנדורה וכישורים חדשים לאמזון אקו</title>
+				<link href="http://air-mail.co/posts/Amazon_echo_pandora_new_skils"/>
+				<updated>2016-02-06T00:00:00.000Z</updated>
+				<id>http://air-mail.co//posts/Amazon_echo_pandora_new_skils</id>
+				<content type="html">
+					&lt;a href=&quot;/posts/Amazon_echo_pandora_new_skils&quot;&gt;
+										&lt;img class=&quot;img-responsive&quot;
+													src=&quot;/images/data/alexa_product_large.thumb_default_w300h300q85.jpg&quot;
+													alt=&quot;Amazon Echo Alexa&quot;&gt;
+									&lt;/a&gt;
+
+									&lt;p&gt;
+									כידוע, שירות הרדיו של פנדורה מוצע בארה&quot;ב בלבד, אולם הישראלים שרכשו את המחשב הקולי של חברת אמזון - Amazon Echo יוכלו להשתמש בשרות דרך המכשיר ...
+									&lt;/p&gt;
+				</content>
+				<media:thumbnail xmlns:media="http://search.yahoo.com/mrss/"
+				   url="/images/data/alexa_product_large.thumb_default_w300h300q85.jpg"
+				   height="300" width="300" />
+			</entry>
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+</feed>

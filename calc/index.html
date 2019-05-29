@@ -1,0 +1,992 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>דואר אויר | מחשבון קניות באמזון</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="http://cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link href="css/custom.css" rel="stylesheet" />
+</head>
+<body dir="rtl">
+    <nav class="navbar navbar-default navbar-styled">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <div class="navbar-header">
+                    <a href="/" class="pull-right"><img itemprop="logo" src="http://air-mail.co/icon50.png"></a>
+                    <a itemprop="url" class="navbar-brand" href="/">דואר אויר</a>
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse" id=" bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">מדריכי קניה <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">הזמנת משלוח מחו"ל Shipito</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">מומלצים שלנו <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                    <a href="../topics/storage/a_storage_drives">
+                                        כוננים קשיחים וזכרונות
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/headphones/a_headphones">
+                                        אוזניות
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/radio_disk_car_stereo/a_radio_disk_car_stereo">
+                                        רדיו דיסק וסטריאו לרכב
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/compact_digital_camera/a_compact_digital_camera">
+                                        מצלמה דיגיטלית קומפקטית
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/computer_parts_hardware/a_computer_parts">
+                                        חומרה למחשב
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/games/a_games">
+                                        משחקי מחשב Xbox וסוני PS
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/camera/a_camera">
+                                        מצלמות אקסטרים
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/hrm_sport_watch/a_hrm_sport_watch">
+                                        שעוני דופק ומד צעדים
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/mouse_keyboard/a_mouse_keyboard">
+                                        עכבר ומקלדת
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/professional_camera/a_professional_camera">
+                                        מצלמה מקצועית
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/cellphones/a_cellphones_iphone_android">
+                                        טלפונים סלולרים אייפון ואנדרואיד
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/smart_home/a_smart_home">
+                                        בית חכם ואוטומציה
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/smart_watch/a_smart_watch">
+                                        שעון חכם
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/speakers/a_speakers">
+                                        רמקולים
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/car_security_camera/a_car_security_camera">
+                                        מצלמות לרכב ואבטחה
+                                    </a>
+                            </li>
+                            <li>
+                                    <a href="../topics/tablet/a_tablet">
+                                        מחשבי טאבלט
+                                    </a>
+                            </li><!--<% for topicA in @getCollection('topics').toJSON(): %>
+                            <li>
+                                <b>
+                                    <a href="<%= topicA.url %>">
+                                        <%= topicA.heb_title %>
+                                    </a>
+                                </b> 
+                            </li>
+                            <% end %>-->
+                        </ul>
+                    </li>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <form role="form" data-toggle="validator" id="search_form" class="welcome-offset">
+        <div class="form-inline">
+            <div class="form-group col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-lg-offset-4 col-sm-offset-3 col-sm-5 col-xs-8 col-xs-offset-0 tight-margin">
+                    <input required pattern=".*B0[0-9A-Za-z]+.*" title="הדבק כאן לינק למוצר באמזון" id="amazonUrl" class="form-control" placeholder="הדבק כאן את הלינק למוצר באמזון">
+                </div>
+                <div class="col-lg-4 col-sm-4 col-xs-4 text-right tight-margin">
+                    <button type="submit" id="search_btn" class="btn btn-warning"><span class="normal">חשב מחיר סופי</span><i class="glyphicon glyphicon-refresh glyphicon-spin working" style="display: none;"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div>
+        <div>
+            <div class="jumbotron jumbotron-styled collapse in">
+                <div class="container">
+                    <div class="row text-center">
+                        <span id="banner">
+                            <img src="img/banner.png" />
+                        </span>
+                        <div class="welcome-image text-center hidden-xs">
+                            <span class="glyphicon glyphicon-md glyphicon glyphicon-arrow-up text-danger" id="arrowup"></span><img src="img/whytosearch2.png" />
+                        </div>
+                        <!-- <h1>מחשבון קניות באמזון</h1>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="working middle text-center">
+        <div class="row">
+            <i class="glyphicon glyphicon-lg glyphicon-repeat glyphicon-spin color-gray"></i>
+        </div>
+    </div>
+
+    <div id="error" class="alert alert-warning middle" role="alert" hidden>
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <strong>שגיאה</strong>
+        לא ניתן להוציא את פרטי המוצר מאמזון.
+        אנא נסה לינק אחר.
+    </div>
+
+    <div id="content" class="container col-xs-12 collapse normal" dir="ltr">
+        <div class="main-image col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <img id="productImage" class="img-responsive" src="">
+        </div>
+        <div id="centerC" class="col-lg-6 col-md-5 col-sm-8 col-xs-12">
+            <h1 id="title" class="a-size-large a-spacing-none">
+                <span id="productTitle" class="a-size-large"></span>
+            </h1>
+            <div id="brandByline_feature_div" class="feature" data-feature-name="brandByline">
+                <div class="a-section a-spacing-none">
+                    <span>by </span><span class="a-brand">unknown</span>
+                </div>
+            </div>
+            <div id="twister_feature_div" class="feature" data-feature-name="twister">
+                <div id="twisterContainer" class="addTwisterMargin" style="max-width:none">
+                    <form id="twister" action="/gp/product/handle-buy-box/ref=dp_start-bbf_1_glance" method="post" class="a-section a-spacing-small"></form>
+                </div>
+            </div>
+            <hr>
+            <div id="price_feature_div" class="feature" data-feature-name="price">
+                <div id="price" class="a-section a-spacing-small">
+                    <table class="a-lineitem">
+                        <tbody>
+                            <tr id="priceblock_ourprice_row">
+                                <td id="priceblock_ourprice_lbl" class="a-color-secondary a-size-base a-text-right a-nowrap">Amazon Price:&nbsp;</td>
+                                <td class="a-span12">
+                                    <span id="priceblock" dir="rtl" class="a-size-medium a-color-price"></span>
+                                    <h5 id="noPrice" hidden><span class="label label-warning" onmouseover="anim('rightC', 'shake');"><strong>לא הצלחנו לקבל את המחיר</strong></span></h5>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="featurebullets_feature_div" class="feature" data-feature-name="featurebullets">
+                <div id="feature-bullets" class="a-section a-spacing-medium a-spacing-top-small">
+                </div>
+            </div>
+        </div>
+        <div id="rightC" class="col-lg-3 col-md-3 col-sm-4 col-xs-12" dir="rtl">
+            <div class="a-section a-spacing-medium">
+
+                <div class="a-box">
+                    <div class="a-box-inner a-padding-null">
+
+                        <div class="a-section a-spacing-none a-padding-none">
+                            <div id="calculatedPrice">
+
+                                <div id="shippingOptions" class="a-text-center a-section shipNormal">
+                                    <label>בחר סוג משלוח</label>
+                                    <div class="dropdown" dir="ltr">
+                                        <div class="input-group">
+                                            <a href class="btn btn-default dropdown-toggle form-control shipmenu-btn shipNormal" data-toggle="dropdown">
+                                                <img id="shippingDdbLogo" style="width:38px" />
+                                                <span id="shippingDdbText"></span>
+                                            </a>
+                                            <a href class="btn btn-warning dropdown-toggle shipmenu-btn input-group-btn shipNormal" data-toggle="dropdown">
+                                                <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu json-menu"></ul>
+                                        </div>
+                                    </div>
+                                    <span>
+                                        <strong><a href="http://www.shipito.com/id_affiliate=4865" target="_blank" rel="nofollow">שיפיטו</a></strong> מאפשר להתאים <strong>סוג משלוח</strong> לצרכים שלך. כאן אספנו את הנפוצים.
+                                    </span>
+                                </div>
+                                <table class="a-color-secondary a-size-medium a-section">
+                                    <col class="col-xs-6">
+                                    <col class="col-xs-6">
+                                    <tr>
+                                        <td class="a-color-secondary a-size-base a-nowrap">מחיר המוצר:</td>
+                                        <td id="amazonPrice"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="a-color-secondary a-nowrap">עלות המשלוח:</td>
+                                        <td id="shippingPrice" class="a-text-right">
+                                            <i class="glyphicon glyphicon-repeat glyphicon-spin shipWorking"></i>
+                                            <span class="shipNormal" id='totalShipPrice'>X</span>
+                                            <a href="#" id="shippingDetailsInfoIcon" data-toggle="modal" data-target="#abroad_shipping" class="shipNormal">
+                                                <span class="glyphicon glyphicon-info-sign text-warning" aria-hidden="true"></span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr id="tax">
+                                        <td class="a-color-secondary a-nowrap">מס ייבוא:</td>
+                                        <td>
+                                            <i class="glyphicon glyphicon-repeat glyphicon-spin shipWorking"></i>
+                                            <span id="ilsTax" class="shipNormal">X</span>
+                                            <select id="ilsTaxDdl" class="shipNormal" onchange="calcIlsTaxAndTotal();"></select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="a-text-center">
+                                            <div id="speakerTax" hidden class="alert alert-warning fade in alert-box a-text-right a-size-small">
+                                                <button type="button" class="close" data-hide="alert" link-hide="recalcTax" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <span class="glyphicon glyphicon-resize-small"></span>
+                                                מכשירים שמידותיהם אינן עולות על 45*100*170 מ''מ מעל 75$ חייבים בתשלום מע''מ בלבד.
+                                                <br /><br />
+
+                                            </div>
+                                            <a class="alert-link" hidden id="recalcTax" onclick="document.getElementById('ilsTaxDdl').selectedIndex = 83; calcIlsTaxAndTotal();">חשב מחדש עבור רמקול קטן</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="a-text-center">
+                                            <div id="noSpeakerTax" hidden class="alert alert-warning fade in alert-box a-text-right a-size-small">
+                                                <button type="button" class="close" data-hide="alert" link-hide="recalcNoTax" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <span class="glyphicon glyphicon-resize-small"></span>
+                                                מכשירים שמידותיהם אינן עולות על 45*100*170 מ''מ מתחת ל75$ אינם חייבים במס.
+                                                <br /><br />
+
+                                            </div>
+                                            <a class="alert-link" hidden id="recalcNoTax" onclick="document.getElementById('ilsTaxDdl').selectedIndex = 83; calcIlsTaxAndTotal();">חשב מחדש עבור רמקול קטן</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="a-color-secondary a-nowrap">סה"כ:</td>
+                                        <td>
+                                            <i class="glyphicon glyphicon-repeat glyphicon-spin shipWorking"></i>
+                                            <span id="totalPrice" class="a-size-medium a-color-price shipNormal">X</span>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <div id="noDims" class="a-section" hidden>
+                                    <div class="alert alert-warning">
+                                        <div>
+                                            <span class="glyphicon glyphicon-remove-circle text-danger" aria-hidden="true"></span>
+                                            <strong>לא הצלחנו לקבל את גודל החבילה מאמזון.</strong>
+
+                                        </div>
+                                        <div>
+                                            בקרוב תוכל לבקר ב<a href="#" class="alert-link amazonLink" target="_blank">עמוד של האמזון</a>
+                                            ולהזין את גודל החבילה ידנית לצורך חישוב עלויות המשלוח לארץ.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <a id="buyButton" class="btn btn-warning form-control shipNormal a-section" href="#" data-toggle="modal" data-target="#abroad_link">
+                                    <img src="img/cart.png" width="25px"> קנייה באמזון
+                                </a>
+                            </div>
+                            <div id="enterPrice" hidden>
+                                <div class="alert alert-warning">
+                                    <div>
+                                        <span class="glyphicon glyphicon-remove-circle text-danger" aria-hidden="true"></span>
+                                        <strong>לא הצלחנו לקבל את המחיר מאמזון.</strong>
+
+                                    </div>
+                                    <div>
+                                        בקרוב תוכל <a href="#" class="alert-link amazonLink" target="_blank">לבקר בעמוד של האמזון</a>
+                                        ולהזין את מחיר המוצר כדי לחשב את עלות המשלוח לארץ.
+                                    </div>
+                                </div>
+                                <!--
+                                <form class="a-content">
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-addon">$</span>
+                                            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="מחיר בדולרים" />
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-warning" type="button">חשב</button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                    -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- Modal Shipping Cost -->
+    <div id="abroad_shipping" class="modal fade" role="dialog" dir="rtl">
+        <div class="modal-dialog modal-md">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h2 class="a-size-large">משלוח בארה"ב (נגבה ע"י אמזון)</h2>
+                    <div class="alert alert-warning virtualMB">
+                        <span class="glyphicon glyphicon-exclamation-sign info"></span>
+                        <a href="http://www.shipito.com/id_affiliate=4865" target="_blank" rel="nofollow">יש ליצור VIRTUAL MAILBOX באתר שיפיטו</a> לפני הזמנה באמזון כדי לחסוך במס מקומי (State Tax).
+                    </div>
+                    <table>
+                        <tbody>
+                            <colgroup>
+                                <col class="col-xs-6">
+                                <col class="col-xs-6">
+                            </colgroup>
+                            <tr>
+                                <td><label>מחסן שיפיטו למשלוח</label></td>
+                                <td class="selection" id="warehouse"></td>
+                            </tr>
+                            <tr>
+                                <td><label>מס מקומי (State Tax)</label></td>
+                                <td class="a-color-price">
+                                    <span id="stateTax"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>משלוח פנימי למחסן שיפיטו</label></td>
+                                <td>
+                                    מוצג באמזון. משלוח פנימי מבוצע בדרך כלל לא תוספת תשלום.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h2 class="a-size-large">משלוח שיפיטו לארץ</h2>
+                    <table class="col-xs-12">
+                        <tbody>
+                            <colgroup>
+                                <col class="col-xs-6">
+                                <col class="col-xs-6">
+                            </colgroup>
+                            <tr class="virtualMB">
+                                <td>
+                                    <label>יצירת Virtual Mailbox</label>
+                                </td>
+                                <td class="a-color-price">
+                                    <span id="vmPrice"></span>
+                                </td>
+                            </tr>
+                            <tr class="virtualMB">
+                                <td colspan="2">
+                                    <span class="selection">Virtual Maibox מאפשר לך להזמין מוצרים ללא מס פנימי בתוך ארה"ב במשך חודש.</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>משלוח לישראל</label></td>
+                                <td class="a-color-price">
+                                    <span id="shipPrice"></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">חזור</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Before Amazon Redirect -->
+    <div id="abroad_link" class="modal fade" role="dialog" dir="rtl">
+        <div class="modal-dialog modal-sm">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-body">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-badge white"><a href="http://www.shipito.com/id_affiliate=4865" target="_blank" rel="nofollow"><img src="http://ios-i1.infcdn.net/images_ios/icons_ios/50/6/fe/3c/1545555.jpeg" class="glyphicon"></a></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="timeline-title"><a href="http://www.shipito.com/id_affiliate=4865" target="_blank" rel="nofollow">פתיחת חשבון בשיפיטו וקבלת תיבת דואר אמריקאית</a></span>
+                                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 5-10 דקות</small></p>
+                                </div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-badge white"><a rel="nofollow" class="amazonLink" target="_blank"><img src="https://developer.amazon.com/favicon.ico"></a></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="timeline-title"><a rel="nofollow" class="amazonLink" target="_blank">מבצעים הזמנה כרגיל ובסוף מזינים את הכתובת שקיבלנו משיפיטו.</a></span>
+                                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 5-10 דקות </small></p>
+                                </div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-badge danger"><i class="glyphicon glyphicon-envelope"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="timeline-title">לאחר הגעת המוצר למחסני שיפיטו יקבל המשתמש הודעה בדואר אלקטרוני. יש להיכנס לשיפיטו כדי לשלם על המשלוח, להצהיר על המוצר ועל ערכו.</span>
+                                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 3 ימים </small></p>
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="timeline-badge success"><i class="glyphicon glyphicon-thumbs-up"></i></div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <span class="timeline-title">
+                                        קבלת החבילה בארץ ותשלום
+                                        <a href="http://62.219.95.10/MisimMerukHT/" rel="nofollow" target="_blank">מס יבוא</a>
+                                        בדואר ישראל או לחברת משלוחים
+                                    </span>
+                                    <p>
+                                        <small class="text-muted">
+                                            <i class="glyphicon glyphicon-time"></i>    3-45 ימים בהתאם למשלוח
+                                        </small>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </li>
+                    </ul>
+                    <input type="checkbox" id="noShow" onchange="noShowChange();">&nbsp; אל תציג מסך זה שוב והעבר אותי ישירות לאתר.
+                </div>
+                <div class="modal-footer">
+                    <a rel="nofollow" class="btn btn-success btn-lg amazonLink" target="_blank">
+                        לקניה בחו"ל
+                    </a>
+                    <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">חזור</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var convertRate = 3.5;
+        (function getConversionRate() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    if (xhttp.errorMessage)
+                        return false;
+                        
+                    convertRate = JSON.parse(xhttp.responseText).rates.ILS;
+                    $('#convertRate').innerHTML = convertRate;
+                };
+            };
+            xhttp.open('GET', 'http://api.fixer.io/latest?symbols=ILS&base=USD', true);
+            xhttp.send();
+        })();
+        
+        $(function () {
+            $("[data-hide]").on("click", function () {
+                $("." + $(this).attr("data-hide")).hide();
+                $("#" + $(this).attr("link-hide")).hide();
+            });
+        });
+
+        // basic data
+        var basePrice;
+        var stateTax;
+        var vmPrice;
+        var taxRate = 0;
+        var ilsTax;
+        var ilsTaxCategory, ilsTaxInfo;
+        var totalShipPrice;
+
+        var amazonLink;
+
+        function toUsCurrency(num) {
+            return num && Number(num) > 0 ? ('$' + Math.round(Number(num))) : '-';
+        }
+        
+        function toIlsCurrency(num) {
+            if (convertRate)
+                return num && Number(num) > 0 ? (Math.round(Number(num) * convertRate) + ' ש"ח ') : '0 ש"ח';
+
+            return toUsCurrency(num);
+        }
+
+        // cookies handling
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        }
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+            }
+            return "";
+        }
+
+        function deleteCookie(cname) {
+            var d = new Date();
+            d.setTime(d.getTime() - 1);
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=; " + expires;
+        }
+
+        function redirectToAmazon() {
+            $('#buyButton').attr('href', amazonLink);
+            $('#buyButton').prop('target', '_blank');
+            $('#buyButton').removeAttr('data-toggle');
+            $('#buyButton').removeAttr('data-target');
+        }
+
+        function anim(element_id, animation) {
+            $('#' + element_id).addClass(animation).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                $(this).removeClass(animation);
+            });
+        };
+
+        function noShowChange() { //bind click handler
+            if (document.getElementById('noShow').checked) {
+                setCookie('showGuidelines', 'no', 30);
+                redirectToAmazon();
+            } else {
+                deleteCookie('showGuidelines');
+                $('#buyButton').attr('href', '#');
+                $('#buyButton').prop('data-target', "#abroad_link");
+                $('#buyButton').prop('data-toggle', "modal");
+                $('#buyButton').removeAttr('target');
+            }
+        }
+
+        function calcIlsTaxAndTotal(forceTaxRate) {
+            if (document.getElementById("ilsTaxDdl").selectedIndex == 179 && !forceTaxRate)
+                if (basePrice > 75) {
+                    $('#speakerTax').show();
+                    $('#recalcTax').show();
+                    $('#noSpeakerTax').hide();
+                    $('#recalcNoTax').hide();
+                } else {
+                    $('#speakerTax').hide();
+                    $('#recalcTax').hide();
+                    $('#noSpeakerTax').show();
+                    $('#recalcNoTax').show();
+                }
+            else {
+                $('#speakerTax').hide();
+                $('#recalcTax').hide();
+                $('#noSpeakerTax').hide();
+                $('#recalcNoTax').hide();
+            }
+
+            var ilsTax = totalShipPrice + basePrice;
+            if (document.getElementById("ilsTaxDdl").value != -1 && document.getElementById("ilsTaxDdl").value != -2) {
+                ilsTaxCategory = document.getElementById("ilsTaxDdl").options[document.getElementById("ilsTaxDdl").selectedIndex].text;
+                ilsTaxInfo = JSON.parse(document.getElementById("ilsTaxDdl").value);
+            }
+
+            var taxRate;
+            if (forceTaxRate)
+                taxRate = forceTaxRate;
+            else if (document.getElementById("ilsTaxDdl").value == -2)  // בחר
+                taxRate = 0;
+            else {
+                taxRate = ilsTaxInfo ? ilsTaxInfo.filter(function (taxItem) { return Number(taxItem.Min) <= ilsTax && Number(taxItem.Max) > ilsTax; }) : 0;
+                taxRate = taxRate.length ? taxRate[0].Tax : 0;
+            }
+            var ilsTax = ilsTax * taxRate;
+            var totalPrice = totalShipPrice + ilsTax + basePrice;
+
+            document.getElementById('totalPrice').innerHTML = toIlsCurrency(totalPrice);
+
+            if (document.getElementById("ilsTaxDdl").value == -2) // בחר
+                document.getElementById('ilsTax').innerHTML = 'בחר קטגוריית מס';
+            else {
+                document.getElementById('ilsTax').innerHTML = toIlsCurrency(ilsTax);
+
+                var x = document.getElementById("ilsTaxDdl");
+
+                $('#ilsTaxDdl option').each(function () {
+                    if ($(this).text()[$(this).text().length - 1] == '%' || $(this).text() == 'ללא' || $(this).text() == 'בחר') {
+                        $(this).remove();
+                    }
+                });
+                $('#ilsTaxDdl')
+                    .append('<option value="-1">' + (taxRate ? (Math.round(taxRate * 100) + '%') : 'ללא') + '</option>')
+                    .find('option:last')
+                    .attr("selected", "selected")
+                    .attr("disabled", "disabled");
+                $('#tax').prop('title', ilsTaxCategory + ' (מס בקניה מעל 75$) ');
+            }
+            
+            
+        }
+
+        function calcSumFields(shippingOption) {
+            if (!shippingOption) {
+                $('#shippingOptions').hide();
+                $('#shippingDetailsInfoIcon').hide();
+
+                document.getElementById('totalShipPrice').innerHTML = '<span class="glyphicon glyphicon-remove-circle text-danger" aria-hidden="true"></span>';
+                document.getElementById('ilsTax').innerHTML = '-';
+                document.getElementById('totalPrice').innerHTML = '-';
+                return;
+            }
+
+            shippingOption = JSON.parse(shippingOption);
+
+            // calculations
+            totalShipPrice = vmPrice + stateTax + shippingOption.shippingRate;
+
+            // set in page
+            $('#shippingOptions').show();
+            $('#shippingDetailsInfoIcon').show();
+
+            document.getElementById('shippingDdbLogo').src = 'img/shipito.jpg'; //'http://calculator.shipito.com/assets/img/logos/' + shippingOption.logo;
+            document.getElementById('shippingDdbText').innerHTML = shippingOption.name.slice(0, 16);
+
+            document.getElementById('shipPrice').innerHTML = toIlsCurrency(shippingOption.shippingRate);
+            document.getElementById('totalShipPrice').innerHTML = toIlsCurrency(totalShipPrice);
+            
+            calcIlsTaxAndTotal();
+        }
+
+        //Events for ga analytics
+        function trackEvent(EventCategory, EventAction, EventLabel, EventValue) {
+            var send_obj = {
+                hitType: 'event',
+                eventCategory: EventCategory.toString(),
+                eventAction: EventAction.toString(),
+                //eventLabel: ,
+                //eventValue: EventValue
+            };
+
+            if (EventLabel) { send_obj.eventLabel = EventLabel; }
+            if (EventValue) { send_obj.eventValue = EventValue; }
+
+            return ga('send', send_obj);
+        }
+
+        $(function () {
+            var welcomeScreen = true;
+
+            function hideNormalState() {
+                $('.working').each(function () {
+                    $(this).hide();
+                });
+            }
+
+            function switchToWorkingState(isWorking) {
+                if (isWorking) {
+                    $('.normal').each(function () {
+                        $(this).hide();
+                    });
+                    $('.working').each(function () {
+                        $(this).show();
+                    });
+                } else {
+                    $('.normal').each(function () {
+                        $(this).show();
+                    });
+                    $('.working').each(function () {
+                        $(this).hide();
+                    });
+                }
+                $('#error').hide();
+            }
+
+            function switchToErrorState() {
+                $('#error').show();
+                $('#content').hide();
+            }
+
+            switchToWorkingState(0);
+            $('#content').hide();
+            anim('arrowup', 'bounceInUp');
+
+            [{ "Category": "אוהלים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "אוזניות בלוטוס", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "אוכף", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.287" }] }, { "Category": "אופני כושר", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "אופניים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "אורגן חשמלי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "אי רובוט עם/בלי שוט", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "אייפד מיני", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "אל סבון", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "אקורדיונים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "בגדי ספורט", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "בושם", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "ביגוד תרמי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "ברכות שחיה לילדים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.287" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.287" }] }, { "Category": "גזיות", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "גיטרה ומנדולינה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "גיטרה חשמלית", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "גלאי עשן", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "גריל פחמים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "גריל חשמלי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "גריל-גז/ברביקיו", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "דגי נוי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "די.וי.די", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "%34.6 אל'י מ- %17.0 + 534.69 ש'ח לכ'א" }] }, { "Category": "דיסקט", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "הלבשה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "בהתאם לפריט המיובא" }] }, { "Category": "הלבשה תחתונה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "הליכון (מכשיר כושר)", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.287" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.287" }] }, { "Category": "הנעלה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "בהתאם לפריט המיובא" }] }, { "Category": "ווקמן", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "ווקמן+רדיו", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "וטמינים 2 קג סהכ 15", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "%17.0 + 2.93 ש'ח לק'ג" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "וידאו", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "%34.6 אל'י מ- %17.0 + 534.69 ש'ח לכ'א" }] }, { "Category": "וילונות", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "ח. חשמל נתיכים לרכב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "חלקי בלם,מערכות ABS", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "חלקי חילוף לרכב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "בהתאם לפריט המיובא" }, { "Min": "500", "Max": "1000", "Tax": "0.478" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.478" }] }, { "Category": "חלקים לנגררים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "חמרי ניקוי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "חתולים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "טאבלטים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "טבק למקטרת", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "%17.0 + 346.41 ש'ח לק'ג" }, { "Min": "500", "Max": "1000", "Tax": "%17.0 + 346.41 ש'ח לק'ג" }, { "Min": "1000", "Max": "Infinity", "Tax": "%17.0 + 346.41 ש'ח לק'ג" }] }, { "Category": "טוחן אשפה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "טלויזיה מעל 50 אנטש", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.521" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.521" }] }, { "Category": "טלויזיה עד 50 אינטש", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.346" }] }, { "Category": "טלסקופ", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "טלפון", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "טלפון אלחוטי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "טלפון סלולרי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.346" }] }, { "Category": "טלפון קבוע לרכב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "יומן אלקטרוני", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "יין", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "%31.0 + 1.73 ש'ח לליטר אל'פ מ- 6.10 ש'ח לליטר" }, { "Min": "500", "Max": "1000", "Tax": "%31.0 + 1.73 ש'ח לליטר אל'פ מ- 6.10 ש'ח לליטר" }, { "Min": "1000", "Max": "Infinity", "Tax": "%31.0 + 1.73 ש'ח לליטר אל'פ מ- 6.10 ש'ח לליטר" }] }, { "Category": "יין נתזים ושמפניה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "%31.0 אל'פ מ- 4.38 ש'ח לליטר" }, { "Min": "500", "Max": "1000", "Tax": "%31.0 אל'פ מ- 4.38 ש'ח לליטר" }, { "Min": "1000", "Max": "Infinity", "Tax": "%31.0 אל'פ מ- 4.38 ש'ח לליטר" }] }, { "Category": "כבל USB", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "כדורי טניס", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "כיורים מנירוסטה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "כיורים קרמיים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "כלבים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "כלי בית", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "כלי בית חשמליים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "כלי מיטה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "כלי מיתר עם קשת", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "כלי נשיפה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "כריות אוויר", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "מ בטיחות תינוק לרכב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מאוורר", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מאזני אמבטיה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.287" }] }, { "Category": "מבזק אור", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מברשת שניים חשמלית", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מגבות", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "מגבים לשמשות וחלקהם", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "מגבר-קול", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.346" }] }, { "Category": "מגבר-קול לרכב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.346" }] }, { "Category": "מגהץ", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מגלה רדאר לרכב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "מגן מסך סיליקון לסמ", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.264" }] }, { "Category": "מד אור", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מדיח כלים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מדפסת", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מושב בטיחותי לתינוק", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מזגן-אוויר", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "בהתאם לפריט המיובא" }] }, { "Category": "מזון מעורב עד 15 ק'ג", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "%17.0 + 2.93 ש'ח לק'ג" }, { "Min": "1000", "Max": "Infinity", "Tax": "בהתאם לפריט המיובא" }] }, { "Category": "מזרקים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "מחשב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מחשב נייד", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מחשב נישא", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מחשבון כיס", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מטולי שקופיות", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מטחנת קפה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "מטען לסמארטפון", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מייבש כביסה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מייבש שיער", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מיקרוגל", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מיקרופונים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.346" }] }, { "Category": "מיקרופונים אלחוטיים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מכונה להכנת קפה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מכונת גילוח חשמלית", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מכונת גלוח", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מכונת כביסה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מכונת כתיבה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "מכונת סריגה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "מכונת צילום", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מכשיר אדים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "מכשיר עיסוי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "מלבושי פרווה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.287" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.287" }] }, { "Category": "ממיר קטליטי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "ממרט רצפה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "מנורות-מתאמי תאורה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.287" }] }, { "Category": "מערבל מזון", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "מערכת משולבת", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.346" }] }, { "Category": "מפוחית פה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מפות שולחן", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "מפסקים חכמים לרכב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.395" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.395" }] }, { "Category": "מציתים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.264" }] }, { "Category": "מצלמה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מצלמה דיגיטלית", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מצלמות אקסטרים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מצלמות לצילומי לילה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מצלמות נסתרות", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מצלמת ווידיאו", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מצנם - טוסטר", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מקדחה חשמלית", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "מקפיא חשמלי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "מקרן ווידיאו", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "%34.6 אל'י מ- %17.0 + 2925.00 ש'ח לכ'א" }] }, { "Category": "מקרר מעל 800 ליטר", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "%31.0 + 643.50 ש'ח לכ'א" }, { "Min": "1000", "Max": "Infinity", "Tax": "%31.0 + 643.50 ש'ח לכ'א" }] }, { "Category": "מקרר עד 800 ליטר", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "משדר ומקלט לחובב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "משדר ללא מקלט לחובב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "משדר נייד", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "משור בנזין", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.264" }] }, { "Category": "משור חשמלי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.287" }] }, { "Category": "משחקי טלויזיה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "משחקי מחשב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "משחקי שולחן", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "משיבון", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "משקאות אלכהליים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "%17.0 + 99.45 ש'ח לליטר" }, { "Min": "500", "Max": "1000", "Tax": "%17.0 + 99.45 ש'ח לליטר" }, { "Min": "1000", "Max": "Infinity", "Tax": "%17.0 + 99.45 ש'ח לליטר" }] }, { "Category": "משקאות קלים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "%17.0 + 2.93 ש'ח לק'ג" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "משקפיים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "משקפת", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "נעלי ספורט", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "נרגילות", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "סדין חשמלי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "סוללות לסמארטפון", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.507" }] }, { "Category": "סורק", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "סיר בישול חשמלי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "סכו'ם מכסף", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "סכיני גילוח", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "ספרים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "סקסופונים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "סרטי צלום", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "עגלת תינוק", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "עדשה למצלמה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "עזרי ספורט מד צעדים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.287" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "עזרי ספורט-מד דופק", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.287" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "עטים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "עיתונים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "עכבר למחשב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "פחם למנגל", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "פלטת שבת", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "פנסים ידניים (כיס)", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "פנסים לרכב הלוגן", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "פסנתרים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "פקסימיליה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "פרקולטור", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "צורב דיסקים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "ציוד דייג", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "ציוד ספורט", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "ציוד סקי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "ציפורי נוי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "%31.0 אל'י מ- %17.0 + 35.10 ש'ח לכ'א" }] }, { "Category": "צעצועים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "קולט אדים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "קומפקט-דיסק", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "%34.6 אל'י מ- %17.0 + 534.69 ש'ח לכ'א" }] }, { "Category": "קומקום חשמלי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "קונסולות משחק וידאו", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "קוסמטיקה וטואלט", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "קסדות מגן", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "רדיו", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "" }] }, { "Category": "רדיו משולב במקליט", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.346" }] }, { "Category": "רהיטים מעץ או ממתכת", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "רהיטים מפלסטיק", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "רמקולים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.346" }] }, { "Category": "רמקולים לרכב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.346" }] }, { "Category": "רשמקול", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "%34.6 אל'י מ- %17.0 + 534.69 ש'ח לכ'א" }] }, { "Category": "רשמקול נייד", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "שואב אבק", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "שטיח עבודת יד", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "%21.7 + 12.47 ש'ח למ'ר אל'י מ- %427" }, { "Min": "1000", "Max": "Infinity", "Tax": "%21.7 + 12.47 ש'ח למ'ר אל'י מ- %427" }] }, { "Category": "שייק חלבונים חלבי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "%17.0 + 2.93 ש'ח לק'ג" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.463" }] }, { "Category": "שייק חלבונים סויה", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "%17.0 + 2.93 ש'ח לק'ג" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.217" }] }, { "Category": "שייקר כוס פלסטיק", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "שלט רחוק", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.346" }, { "Min": "500", "Max": "1000", "Tax": "0.346" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "שמיכה חשמלית", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "שמיכות", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "שמלות", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "שמנים ארמתרפים לגוף", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "שמנים ארמתרפים לריח", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.31" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "שעונים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "תופים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "תחפושות", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "תיק לסמארטפון", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "תיקים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "תכשיט מלאכותי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.264" }] }, { "Category": "תכשיטי זהב", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "תכשיטי כסף", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "תמונות מודפסות", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "תנור בישול", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.24" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.24" }] }, { "Category": "תנור חימום בגז", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "תנור חימום בנפט", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "תנור חימום בעץ (אח)", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.17" }] }, { "Category": "תנור חימום חשמלי", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.31" }] }, { "Category": "תקליטורים", "IlsTax": [{ "Min": "75", "Max": "500", "Tax": "0.17" }, { "Min": "500", "Max": "1000", "Tax": "0.17" }, { "Min": "1000", "Max": "Infinity", "Tax": "0.229" }] }].map(function (item) {
+                $('<option>').val(JSON.stringify(item.IlsTax)).text(item.Category).appendTo('#ilsTaxDdl');
+            });            
+
+            function getAmazonData(ASIN) {
+                if (!ASIN)
+                    return false;
+
+                if (welcomeScreen) {
+                    hideWelcomeScreen();
+                    welcomeScreen = false;
+                }
+
+                ASIN = ASIN.toUpperCase();
+                amazonLink = 'http://www.amazon.com/gp/offer-listing/' + ASIN + '/ref=olp_tab_new?ie=UTF8&condition=new&tag=airmail00-20';
+
+                trackEvent('Abroad_search', 'www.amazon.com', 'http://www.amazon.com/dp/' + ASIN, 1);
+
+                if (getCookie('showGuidelines') == 'no')
+                    redirectToAmazon();
+
+                switchToWorkingState(1);
+
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        switchToWorkingState(0);
+
+                        var data = JSON.parse(xhttp.responseText);
+                        if (data.errorMessage) {
+                            switchToErrorState();
+                            return false;
+                        }
+
+                        $('#productImage').prop('src', data.ImageUrl);
+                        $('#productTitle').prop('innerHTML', data.Title);
+
+                        var pageTitle = data.Title.slice(0, 30);
+                        document.title = 'דואר אויר | ' + pageTitle.slice(0, pageTitle.lastIndexOf(' '));
+
+                        $('.a-brand').prop('innerHTML', data.Manufacturer);
+                        
+                        if (!data.Tax) {
+                            $('#ilsTaxDdl')
+                                .append('<option value="-2">בחר</option>')
+                                .find('option:last')
+                                .attr("selected", "selected")
+                                .attr("disabled", "disabled");
+                        } else
+                            document.getElementById("ilsTaxDdl").selectedIndex = Number(data.Tax) + 1;
+
+                        if (data.Price) {
+                            function fillShippmentDetails(shippmentData) {
+                                stateTax = shippmentData.Tax * basePrice / 100;
+
+                                vmPrice = shippmentData.VM;
+
+                                document.getElementById('warehouse').innerHTML = shippmentData.Name;
+                                document.getElementById('vmPrice').innerHTML = toIlsCurrency(vmPrice);
+                                document.getElementById('stateTax').innerHTML = toIlsCurrency(stateTax);
+
+                                $('.shipWorking').each(function () {
+                                    $(this).hide();
+                                });
+                                $('.shipNormal').each(function () {
+                                    $(this).show();
+                                });
+
+                                if (vmPrice)
+                                    $('.virtualMB').each(function () {
+                                        $(this).show();
+                                    });
+                                else
+                                    $('.virtualMB').each(function () {
+                                        $(this).hide();
+                                    });
+
+                                calcSumFields(JSON.stringify(shippmentData.Items[0]));
+
+                                var shippingOptionsHTML = '<li class="dropdown-header a-text-center"><img src="img/shipito.jpg" /> הזמנת משלוח באתר</li><li role="separator" class="divider"></li>';
+                                shippmentData.Items.forEach(function (shippingOption) {
+                                    shippingOptionsHTML += "<li class='js-menu'>" +
+                                        "<a onclick='calcSumFields(\"" + JSON.stringify(shippingOption).replace(/\"/g, "\\\"") + "\");'>" +
+                                            "<table width=\"100%\">" +
+                                                "<tr>" +
+                                                    "<th>" +
+                                                        "<img src='http://calculator.shipito.com/assets/img/logos/" + shippingOption.logo + "' />&nbsp;" +
+                                                        shippingOption.name.slice(0, 16) +
+                                                    "</th>" +
+                                                    "<td><h4 dir=\"rtl\" class=\"a-color-price a-text-right\">" + toIlsCurrency(shippingOption.shippingRate + stateTax + vmPrice) + "</h4></td>" +
+                                                "</tr>" +
+                                                "<tr>" +
+                                                    "<td colspan=\"2\">" +
+                                                        "<i class='glyphicon glyphicon-time'></i> " + shippingOption.delivery +
+                                                    "</td>" +
+                                                "</tr>" +
+                                                "<tr>" +
+                                                    "<td colspan=\"2\">" +
+                                                        (shippingOption.tracking ? "<i class='glyphicon glyphicon-ok-circle text-success'></i> Tracking"
+                                                        : "<i class='glyphicon glyphicon-ban-circle text-danger'></i> No tracking") +
+                                                    "</td>" +
+                                                "</tr>" +
+                                            "</table>" +
+                                        "</a>" +
+                                    "</li>";
+                                });
+                                $('.json-menu').prop('innerHTML', shippingOptionsHTML);
+
+                                if ($(".json-menu>li:has(ul.js-menu)"))
+                                    $(".json-menu>li.js-menu").addClass('dropdown-submenu');
+
+                                if ($(".json-menu>li>ul.js-menu>li:has(> ul.js-menu)"))
+                                    $(".json-menu>li>ul.js-menu li ").addClass('dropdown-submenu');
+
+                                $("ul.js-menu").find("li:not(:has(> ul.js-menu))").removeClass("dropdown-submenu");
+                            };
+
+                            basePrice = Number(data.Price);
+
+                            $('#priceblock').prop('innerHTML', toIlsCurrency(data.Price));
+                            $('#amazonPrice').prop('innerHTML', toIlsCurrency(data.Price));
+                            $('#noPrice').hide();
+                            $('#enterPrice').hide();
+                            $('#calculatedPrice').show();
+
+                            if (data.Shipment != null) {
+                                fillShippmentDetails(JSON.parse(data.Shipment));
+                            } else {
+                                if (!data.PackageDims || data.PackageDims == "null") {
+                                    $('#noDims').show();
+                                    $('#calculatedPrice').show();
+
+                                    $('.shipWorking').each(function () {
+                                        $(this).hide();
+                                    });
+                                    $('.shipNormal').each(function () {
+                                        $(this).show();
+                                    });
+
+                                    calcSumFields();
+                                } else {
+                                    $('#noDims').hide();
+
+                                    if (typeof data.PackageDims == "string")
+                                        data.PackageDims = JSON.parse(data.PackageDims);
+
+                                    var xhttpShip = new XMLHttpRequest();
+                                    xhttpShip.onreadystatechange = function () {
+                                        if (xhttpShip.readyState == 4 && xhttpShip.status == 200) {
+                                            var shipData = JSON.parse(xhttpShip.responseText);
+                                            if (shipData.errorMessage) {
+                                                $('#error').show();
+                                                return false;
+                                            }
+
+                                            fillShippmentDetails(shipData);
+                                        };
+                                    };
+                                    xhttpShip.open('GET', 'https://qafhua5fc1.execute-api.eu-west-1.amazonaws.com/dev/shipping/' + ASIN + '?weight=' + data.PackageDims.Weight + '&length=' + data.PackageDims.Length + '&width=' + data.PackageDims.Width + '&height=' + data.PackageDims.Height + '&price=' + data.Price, true);
+                                    xhttpShip.send();
+
+                                    $('.shipWorking').each(function () {
+                                        $(this).show();
+                                    });
+                                    $('.shipNormal').each(function () {
+                                        $(this).hide();
+                                    });
+                                }
+                            }
+                        } else {
+                            basePrice = 1;
+                            $('#priceblock').prop('innerHTML', "");
+                            $('#noPrice').show();
+                            $('#enterPrice').show();
+                            $('#calculatedPrice').hide();
+                        }
+
+                        $('.amazonLink').each(function () {
+                            $(this).prop('href', amazonLink);
+                            $(this).click(function () {
+                                trackEvent('Abroad_provider', 'www.amazon.com', 'http://www.amazon.com/gp/offer-listing/' + ASIN + '/ref=olp_tab_new?ie=UTF8&condition=new', basePrice);
+                            });
+                        });
+
+                        if (data.Props) {
+                            var propsHTML = '';
+                            var props = JSON.parse(data.Props);
+                            Object.keys(props).forEach(function (key) {
+                                propsHTML += '<div id="variation_platform_for_display" class="a-section a-spacing-small">' +
+                                            '<div class="a-row">' +
+                                                '<label>' + key + ': </label>' +
+                                                '<span id="platform" class="selection">' + props[key] + '</span>' +
+                                            '</div>' +
+                                        '</div>';
+                            });
+                            $('#twister').prop('innerHTML', propsHTML);
+                        } else
+                            $('#twister').prop('innerHTML', '');
+
+                        if (data.Features) {
+                            var featuresHTML = '<ul class="a-vertical a-spacing-none">';
+                            var features = JSON.parse(data.Features);
+                            features.forEach(function (feature) {
+                                featuresHTML += '<li><span class="a-list-item">' + feature + '</span></li>';
+                            });
+                            featuresHTML += '</ul>';
+                            $('#feature-bullets').prop('innerHTML', featuresHTML);
+                        } else
+                            $('#feature-bullets').prop('innerHTML', '');
+
+                        $("#content").removeClass("collapse");
+                    }
+                };
+                xhttp.open('GET', 'https://qafhua5fc1.execute-api.eu-west-1.amazonaws.com/dev/product/' + ASIN, true);
+                xhttp.send();
+            }
+
+            $('#search_form').on('submit', function onSearchClick(e) {
+                e.preventDefault();
+
+                var lnk = document.getElementById('amazonUrl').value;
+                if (!lnk)
+                    return false;
+
+                var ASIN = lnk.match(/B0[^/?]+/g);
+                if (ASIN)
+                    return getAmazonData(ASIN[0]);
+
+                return false;
+            });
+
+            function hideWelcomeScreen() {
+                $('#search_form').addClass('no-top-offset');
+                $('.jumbotron').collapse();
+            }
+
+            var ASIN = (function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                url = url.toUpperCase(); // This is just to avoid case sensitiveness  
+                name = name.replace(/[\[\]]/g, "\\$&").toUpperCase();// This is just to avoid case sensitiveness for query parameter name
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            })('ASIN');
+
+            if (ASIN) {
+                document.getElementById('amazonUrl').value = 'http://www.amazon.com/dp/' + ASIN;
+                return getAmazonData(ASIN);
+            }
+                
+        });
+
+
+    </script>
+    <script> (function (i, s, o, g, r, a, m) {i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-64450260-3', 'auto');
+        ga('send', 'pageview'); </script>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+# www.robotstxt.org/
+# http://code.google.com/web/controlcrawlindex/
+
+User-agent: *
+Disallow: /pages/terms_of_use
+Disallow: /pages/terms_of_use.html
+Disallow: /pages/terms_of_use/
+Disallow: /calc/

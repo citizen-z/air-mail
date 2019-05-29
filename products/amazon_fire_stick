@@ -1,0 +1,44 @@
+```
+#from csv2files.js
+layout: product
+html_title: סטרימר על מקל של אמזון
+
+#from data file
+u_id: B00GDQ0RMG
+title: Amazon Fire TV Stick
+file_name: amazon_fire_stick
+specs_group: סטרימרים
+tax_group: מחשב
+tax_rate: 0
+heb_name: סטרימר על מקל של אמזון
+main_image: amazon_fire_stick.jpg
+ship_weight: 0.25
+ship_height: 5
+ship_length: 12
+ship_width: 13
+last_update: 2015-11-27T14:44:35
+description: הסטרימר של אמזון מחבר את הטלויזה לשירותי הענן המובילים כגון נטפליקס והולו, בנוסף מנגן שידורים ישירים של משחקי NBA,  שידורי ספורט ועוד.
+properties: null
+local_providers: []
+abroad_providers: ['http://www.amazon.com/dp/B00GDQ0RMG']
+local_link: null
+local_base_price: null
+local_ship_price: null
+local_total: null
+local_total_lowest: null
+local_previous_price: null
+local_price_updated: Fri Nov 27 2015
+local_drastic_change: null
+local_manual: 2
+abroad_link: http://www.amazon.com/gp/offer-listing/B00GDQ0RMG/ref=olp_tab_new?ie=UTF8&condition=new&tag=airmail00-20
+abroad_base_price: 98
+abroad_inter_ship_price: 0
+abroad_extern_ship_price: 60
+tax: 0
+abroad_total: 158
+abroad_total_lowest: 128
+abroad_previous_price: null
+abroad_price_updated: Fri Nov 27 2015
+abroad_drastic_change: null
+abroad_manual: null
+```
